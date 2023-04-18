@@ -15,10 +15,13 @@ const Home = () => {
     // const _role = getUserRole()
     // return type is always string.
     const [role, setRole] = useState()
-
+    useEffect(() => {
+        const _role = getUserRole()
+        setRole(_role)
+    })
 
     // You have to add condition here according to role.
-    if (role === '?????') {
+    if (role === 'admin') {
         return (
             <Layout>
                 <Admin />

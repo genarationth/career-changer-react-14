@@ -20,10 +20,26 @@ const Admin = () => {
     
     return (
         <div>
-            {/* this is example of mapping array of object to html. */}
-            {[{username: 'hello'}].map(item => <div>{item.username}</div>)}
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fullname</th>
+                        <th>Organization</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {users.map(user => (
+                        <tr>
+                            <td>{user.id}</td>
+                            <td>{user.fullname}</td>
+                            <td>{user.organization}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     )
 }
 
-export default Admin
+export default Admin    

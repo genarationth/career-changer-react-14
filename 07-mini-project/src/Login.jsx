@@ -1,5 +1,5 @@
 import Layout from "./Layout"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { Context } from "./UserContext"
 
 const Login = () => {
@@ -10,11 +10,15 @@ const Login = () => {
     //     username: 'mock',
     //     password: 'mock',
     // })}>Text</button>
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
         <Layout>
             <div>
-                <button onClick={() => login({ username: 'admin', password: 'admin' })}>Login</button>
+                <input type="text" value={username} placeholder="username" onChange={e => setUsername(e.target.value)}></input>
+                <input type="text" value={password} placeholder="password" onChange={e => setPassword(e.target.value)}></input>
+                <button onClick={() => login({username: username, password: password})}>Login</button>
             </div>
         </Layout>
     )
